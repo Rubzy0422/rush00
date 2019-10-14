@@ -1,5 +1,5 @@
 Data management:
-	modify and remove data (items) (ongoing)
+	modify and remove data (ongoing)
 
 User management:
 	create user (check)
@@ -29,3 +29,25 @@ admin section:
 tabels: users, (check)
 		orders, (working on it)
 		products, (check)
+
+
+
+:P orders :
+	on checkout clicked 
+	if user logged in
+	{
+	add to item tabel
+			order=>id
+			product=>id
+			product=>amount
+	
+	add to order tabel
+			username
+			items
+	
+	add to users tabel
+			order id
+	}
+	else {
+		please login to checkout!
+	}
