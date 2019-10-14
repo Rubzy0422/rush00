@@ -1,8 +1,9 @@
 <?php
 require "header.php";
 
-
-if($_GET["action"] == "clear_cart")
+if (isset($_GET['action']))
+{
+	if($_GET["action"] == "clear_cart")
 	{
 		foreach($_SESSION["shopping_cart"] as $keys => $values)
 		{
@@ -11,17 +12,26 @@ if($_GET["action"] == "clear_cart")
 		}
 		echo '<script>alert("cart cleared!")</script>';
 	}
+}
+
+if (isset($_GET['error']))
+{
+	if ($_GET['error'] == "loginrequired") {
+		echo '<p class="error">Please login to checkout your cart!</p>';
+	}
+}
+
 ?>
 
 	<main>
 		<div class="wrapper-main">
 		<?php
 		if (isset($_GET['checkout']))
-					{
-						if ($_GET['checkout'] == "success") {
-							echo '<p class="success">Your order has been set!</p>';
-						}
-					}
+		{
+			if ($_GET['checkout'] == "success") {
+				echo '<p class="success">Your order has been set!</p>';
+			}
+		}
 		?>
 			<section class="section-default">
 				<h3>Order Details</h3>

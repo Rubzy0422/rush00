@@ -3,17 +3,35 @@
 	{
 		require 'dbh.inc.php';
 		session_start();
-	
-		foreach($_SESSION["shopping_cart"] as $keys => $values)
+		if (isset($_SESSION['userUid']))
 		{
-			print_r($values);
+			foreach($_SESSION["shopping_cart"] as $keys => $values)
+			{
+				$sql = "INSERT INTO `ordered_items` ( `orderer`, `quantity`, `product_id`) VALUES ( ?, ?, ?);";
+				$stmt = mysqli_stmt_init($conn);
+				if (!mysqli_stmt_prepare($stmt, $sql))
+				{
+					header("Location ../cart.php?error=sqlerror");
+					exit();
+				}
+				else {
+					$orderer = $_SESSION['userUid'];
+					$product_id = $values['item_id'];
+					$quantity = $values['item_quantity'];
+					mysqli_stmt_bind_param($stmt, "sii", $orderer, $quantity, $product_id);
+					mysqli_stmt_execute($stmt);
+				}
+			}
+			header("Location: ../cart.php?action=clear_cart&checkout=success");
+			exit();
 		}
-		
-		echo '<script>window.location.href="cart.php?action=clear_cart"</script>';
-		header("Location: ../cart.php?checkout=success");
-		exit();
+		else
+		{
+			header("Location: ../cart.php?error=loginrequired");
+			exit();
+		}
 	}
-	else 
+	else
 	{
 		header("Location: ../cart.php");
 		exit();
