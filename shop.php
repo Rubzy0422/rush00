@@ -55,9 +55,24 @@ if(isset($_GET["action"]))
 
 ?>
 
+		<?php
+		// update filter :)
+		// $filter = "*";
+
+		// $sql = "SELECT DISTINCT catagory FROM tbl_product ORDER BY catagory ASC";
+		// $result = mysqli_query($conn, $sql);
+		// 	if(mysqli_num_rows($result) > 0)
+		// 	{
+		// 		// create default of none
+		// 		while($row = mysqli_fetch_array($result))
+		// 		{
+		// 			//onclick filter = (distinct catagory from menu);
+		// 		}
+		// 	}
+		?>
 		<div class="container">
-			<?php
-				$query = "SELECT * FROM tbl_product ORDER BY id ASC";
+		<?php
+				$query = "SELECT * FROM tbl_product WHERE catagory=" . $filter . " ORDER BY id ASC";
 				$result = mysqli_query($conn, $query);
 				if(mysqli_num_rows($result) > 0)
 				{
