@@ -121,7 +121,7 @@ if(isset($_GET["action"]))
 						<img src="<?php echo $row["image"]; ?>" class="img-responsive" /><br />
 						<h4 class="text-info"><?php echo $row["name"]; ?></h4>
 						<h4 class="text-danger">R <?php echo $row["price"]; ?></h4>
-						<input type="number" name="quantity" value="1" class="form-control" />
+						<input type="number" name="quantity" value="1" min="1" max="100" class="form-control" />
 						<input type="hidden" name="hidden_name" value="<?php echo $row["name"]; ?>" />
 						<input type="hidden" name="hidden_price" value="<?php echo $row["price"]; ?>" />
 						<input type="submit" name="add_to_cart" value="Add to Cart" />

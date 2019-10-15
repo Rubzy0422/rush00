@@ -1,7 +1,10 @@
 <?php
+
+
 	if (isset($_POST['admin-user-insert']))
 	{
 		require '../../dbh.inc.php';
+		session_start();
 		$username = $_POST['uid'];
 		$email = $_POST['mail'];
 		$password = $_POST['pwd'];

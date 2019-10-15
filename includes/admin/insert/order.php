@@ -1,4 +1,5 @@
 <?php
+
 	if (isset($_POST['admin-order-insert']))
 	{
 		$user = $_POST['orderer'];
