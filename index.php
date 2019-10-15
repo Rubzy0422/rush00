@@ -19,7 +19,7 @@ require "header.php";
 						{
 							$_SESSION['ADMIN'] == true;
 							echo '<form action="admin.php" method="POST">
-								<button type="submit" name="admin-submit">Manage Server</button>
+								<button class="admin-btn" type="submit" name="admin-submit">Manage Server</button>
 							</form>';
 						}
 					}

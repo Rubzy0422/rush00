@@ -28,6 +28,10 @@
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
+<div>
+  <h1 class="special">50% off all baby products!!</h1>
+  <img class="specimg" src="image/baby.jpg">
+</div>
 
 <script>
 var slideIndex = 1;
