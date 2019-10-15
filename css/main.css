@@ -10,10 +10,11 @@ body {
 a {
 	display: inline;
 	color: white;
-	padding: 30px;
-	font-size: 30px;
+	padding: 1vw;
+	font-size: 1vw;
 	text-decoration: none;
 }
+
 nav a:hover {
 	background-color: grey;
 }
@@ -80,17 +81,24 @@ th {
 	text-decoration: underline;
 	font-size: 30px;
 }
-.profile-btn, .logout-btn {
+.logout-btn {
+	color: white;
+	background-color: #1a1a1a;
+	border-radius: 3px;
+	font-size: 15px;
+	vertical-align: top;
+}
+.profile-btn {
 	color: white;
 	background-color: #1a1a1a;
 	border-radius: 3px;
 	font-size: 15px;
 }
 .total {
-	
 	font-weight: bold;
 	font-size: 20px;
 }
+
 .admin-btn {
 	background-color: grey;
 	border-radius: 3px;

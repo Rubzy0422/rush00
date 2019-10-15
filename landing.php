@@ -1,5 +1,4 @@
 <!-- main html for normal users-->
-	<link rel= "stylesheet" href="css/slide.css">
 <div class="slideshow-container">
 
 <div class="mySlides fade">
@@ -27,10 +26,6 @@
   <span class="dot" onclick="currentSlide(1)"></span> 
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
-</div>
-<div>
-  <h1 class="special">50% off all baby products!!</h1>
-  <img class="specimg" src="image/baby.jpg">
 </div>
 
 <script>

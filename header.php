@@ -9,11 +9,12 @@
 <!DOCTYPE HTLM>
 	</head>
 	<link rel= "stylesheet" href="css/main.css">
+	<link rel= "stylesheet" href="css/forms.css">
+	<link rel= "stylesheet" href="css/slide.css">
 	<body>
 		<header>
 			<div class="header">
-			<a href="#"><img class="logo" src="image/Navlogo.png" alt="Logo"></a>
-			</div>
+			<a href="indes.php"><img class="logo" src="image/Navlogo.png" alt="Logo"></a>
 			<nav class="nav_bar">
 				<a href="index.php">Home</a>
 				<a href="shop.php">Shop</a>
