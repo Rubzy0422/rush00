@@ -4,28 +4,28 @@
 	<head>
 	<meta charset="utf-8">
 	<meta name=viewport content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>G & R Apothecary</title>
 <?php session_start(); ?>	
 <!DOCTYPE HTLM>
-	<!-- <link rel= "stylesheet"> -->
 	</head>
+	<link rel= "stylesheet" href="css/main.css">
 	<body>
 		<header>
-			<nav>
-			<a href="#"><img src="img/logo.png" alt="logo"></a>
-			<ul>
-				<li><a href="index.php">Home</a></li>
-				<li><a href="shop.php">Shop</a></li>
-				<li><a href="about.php">About</a></li>
-				<li><a href="cart.php">cart</a></li>
-				<?php if (isset($_SESSION['userId'])) {
+			<div class="header">
+			<a href="#"><img class="logo" src="image/Navlogo.png" alt="Logo"></a>
+			</div>
+			<nav class="nav_bar">
+				<a href="index.php">Home</a>
+				<a href="shop.php">Shop</a>
+				<a href="about.php">About</a>
+				<a href="cart.php">Cart</a>	
+			<div class="login">
+			<?php if (isset($_SESSION['userId'])) {
 					echo '<form action="update.php" method="POST">
 					<button type="submit" name="profile-submit">Profile</button>
 					</form>';
 				}
 				?>
-			</ul>
-			<div>
 			<?php if (!isset($_SESSION['userId'])) {
 				echo '<form action="includes/login.inc.php" method="POST">
 					<input type="text" name="mailuid" placeholder="Username/ E-mail">
@@ -42,3 +42,4 @@
 			</div>
 			</nav>
 		</header>
+	</body>
