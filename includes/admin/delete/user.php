@@ -17,7 +17,7 @@
 		{
 			mysqli_stmt_bind_param($stmt, "s", $username);
 			mysqli_stmt_execute($stmt);
-			header("Location: ../../../logout.inc.php");
+			header("Location: ../../../admin.php?success=Deleted user successfully");
 			exit();
 		}
 	}

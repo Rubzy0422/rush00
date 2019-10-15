@@ -3,7 +3,7 @@
 require "header.php";
 require "includes/dbh.inc.php";
 
-
+session_start();
 if(isset($_POST["add_to_cart"]))
 {
 	if(isset($_SESSION["shopping_cart"]))
@@ -57,27 +57,63 @@ if(isset($_GET["action"]))
 
 		<?php
 		// update filter :)
-		// $filter = "*";
-
-		// $sql = "SELECT DISTINCT catagory FROM tbl_product ORDER BY catagory ASC";
-		// $result = mysqli_query($conn, $sql);
-		// 	if(mysqli_num_rows($result) > 0)
-		// 	{
-		// 		// create default of none
-		// 		while($row = mysqli_fetch_array($result))
-		// 		{
-		// 			//onclick filter = (distinct catagory from menu);
-		// 		}
-		// 	}
+		
+		$sql = "SELECT DISTINCT catagory FROM tbl_product ORDER BY catagory ASC";
+		$result = mysqli_query($conn, $sql);
+			if(mysqli_num_rows($result) > 0)
+			{
 		?>
+		
+				<select onchange="updateFilter();" id="filter">
+					<option value="%%">None</option>
+					<?php
+					if (isset($_GET['filter']))
+					{
+						$filter = $_GET['filter'];
+					}
+					else
+					{
+						$filter = "%%";
+					}
+							while($row = mysqli_fetch_array($result))
+							{
+					?>
+								<option value=<?php echo "\"" . $row['catagory'] . "\"";
+								if ($row['catagory'] == $filter)
+								{
+									echo " selected";
+								}
+								?>><?php echo $row['catagory'] ?></option>
+					<?php
+							}
+			}
+					?>
+
+				</select>
+		<script>
+		function updateFilter()
+		{
+			var filter = document.getElementById("filter");
+			var e = filter.value;
+			location.replace("./shop.php?filter=" + e);
+		}
+		</script>
 		<div class="container">
 		<?php
-				$query = "SELECT * FROM tbl_product WHERE catagory=" . $filter . " ORDER BY id ASC";
-				$result = mysqli_query($conn, $query);
-				if(mysqli_num_rows($result) > 0)
+			// check if filter in combobox
+			
+			$query = "SELECT * FROM tbl_product WHERE catagory LIKE ? ORDER BY id ASC";
+			$stmt = mysqli_stmt_init($conn);
+			if (!mysqli_stmt_prepare($stmt, $query)){
+				header("Location: shop.php?error=sqlerror");
+				exit();
+			}
+			else {
+				mysqli_stmt_bind_param($stmt, "s", $filter);
+				mysqli_stmt_execute($stmt);
+				$result = mysqli_stmt_get_result($stmt);
+				while($row = mysqli_fetch_array($result))
 				{
-					while($row = mysqli_fetch_array($result))
-					{
 				?>
 			<div class="col-md-4">
 				<form method="post" action="shop.php?action=add&id=<?php echo $row["id"]; ?>">
