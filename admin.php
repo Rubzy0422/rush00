@@ -158,9 +158,9 @@
 			<!-- set name image(save) price catagory-->
 			<input type="text" name="name" placeholder="Name">
 			<figure>
-				<img id="elephant" src="about:blank" alt="A close up of an elephant">
+				<img id="elephant" src="image/elephant.jpg" alt="A close up of an elephant">
 				<noscript>
-				<img src="elephant.png" alt="A close up of an elephant">
+				<img src="image/elephant.jpg" alt="A close up of an elephant">
 				</noscript>
 			</figure>
 			<input type="number" step="any" name="price" placeholder="Price">

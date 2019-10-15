@@ -1,5 +1,5 @@
 body {
-	background-color: silver;
+	background-color:  grey;
 }
 .nav_bar {
 	list-style: none;
@@ -12,6 +12,7 @@ a {
 	color: white;
 	padding: 30px;
 	font-size: 30px;
+	text-decoration: none;
 }
 nav a:hover {
 	background-color: grey;
@@ -35,4 +36,67 @@ nav {
 .footer {
 	bottom: 0;
 	position: fixed;
+}
+.success {
+	color: green;
+}
+.error {
+	color: red;
+}
+.signup {
+	margin-left: 250px;
+	font-size: 20px;
+}
+.special {
+	text-align: center;
+	font-size: 100px;
+	color: blue;
+	margin-top: auto;
+}
+.specimg {
+	margin-left: 500px;
+	margin-top: -50px;
+}
+th, td {
+	border-bottom: 1px solid black;
+	text-align: center;
+}
+.text-danger {
+	font-size: 20px;
+	color: blue;
+	text-decoration: none;
+}
+th {
+	text-decoration: underline;
+}
+.cart-btn, .checkout-btn {
+	background-color: grey;
+	border-radius: 3px;
+	float: right;
+	font-size: 20px;
+}
+.order {
+	text-align: center;
+	text-decoration: underline;
+	font-size: 30px;
+}
+.profile-btn, .logout-btn {
+	color: white;
+	background-color: #1a1a1a;
+	border-radius: 3px;
+	font-size: 15px;
+}
+.total {
+	
+	font-weight: bold;
+	font-size: 20px;
+}
+.admin-btn {
+	background-color: grey;
+	border-radius: 3px;
+	float: right;
+	font-size: 20px;
+}
+.cartempty {
+	text-align: center;
 }

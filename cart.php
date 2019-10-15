@@ -34,7 +34,7 @@ if (isset($_GET['error']))
 		}
 		?>
 			<section class="section-default">
-				<h3>Order Details</h3>
+				<h3 class="order">Order Details</h3>
 			<div class="table-responsive">
 				<table class="table table-bordered">
 					<tr>
@@ -63,8 +63,8 @@ if (isset($_GET['error']))
 						}
 					?>
 					<tr>
-						<td colspan="3" align="right">Total</td>
-						<td align="right">R <?php echo number_format($total, 2); ?></td>
+						<td class="total" colspan="3">Total</td>
+						<td class="total" >R <?php echo number_format($total, 2); ?></td>
 						<td></td>
 					</tr>
 					<?php
@@ -75,14 +75,14 @@ if (isset($_GET['error']))
 				<?php
 				if(!empty($_SESSION["shopping_cart"]))
 				{
-					echo '<button onclick="window.location.href=\'cart.php?action=clear_cart\'"><span class=\'text-danger\'>Clear Cart</span></button>
+					echo '<button class="cart-btn" onclick="window.location.href=\'cart.php?action=clear_cart\'"><span>Clear Cart</span></button>
 					<form action="/includes/order.inc.php" method="POST">
 						<button class="checkout-btn" type="submit" name="order-submit" onclick="return confirm(\'Are you sure you want to checkout?\');">Checkout</button>
 					</form>';
 				}
 				else
 				{
-					echo '<h1>Cart is empty</h1>';
+					echo '<h1 class="cartempty" >Cart is empty</h1>';
 				}
 				?>
 				

@@ -21,5 +21,9 @@
     <img src="image/bath5.png">
   </div>
 </div>
+<div>
+  <h1 class="special">50% off all baby products!!</h1>
+  <img class="specimg" src="image/baby.jpg">
+</div>
 
 <!-- no main html or body Tags! -->

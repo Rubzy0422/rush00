@@ -22,20 +22,19 @@
 			<div class="login">
 			<?php if (isset($_SESSION['userId'])) {
 					echo '<form action="update.php" method="POST">
-					<button type="submit" name="profile-submit">Profile</button>
+					<button class="profile-btn" type="submit" name="profile-submit">Profile</button>
 					</form>';
 				}
 				?>
 			<?php if (!isset($_SESSION['userId'])) {
-				echo '<form action="includes/login.inc.php" method="POST">
+				echo '<a class="signup" href="signup.php">Signup</a><form action="includes/login.inc.php" method="POST">
 					<input type="text" name="mailuid" placeholder="Username/ E-mail">
 					<input type="password" name="pwd" placeholder="Password">
 					<button type="submit" name="login-submit">Login</button>
-				</form>
-				<a href="signup.php">Signup</a>';
+				</form>';
 			} else {
 				echo '<form action="includes/logout.inc.php" method="POST">
-					<button type="submit" name="logout-submit">Logout</button>
+					<button class="logout-btn" type="submit" name="logout-submit">Logout</button>
 				</form>';
 			}
 			?>
