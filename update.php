@@ -90,7 +90,7 @@
 	}
 	else
 	{
-		header("Location: ../update.php");
+		header("Location: ../index.php");
 		exit();
 	}
 
