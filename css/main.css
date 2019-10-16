@@ -99,6 +99,7 @@ th {
 	vertical-align: top;
 }
 .profile-btn {
+	display: inline-block;
 	color: white;
 	background-color: #1a1a1a;
 	border-radius: 3px;
@@ -127,4 +128,17 @@ table {
 }
 .shop-item {
 	background-color: silver;
+}
+select {
+	display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: black;
+    width: 10%;
+    max-width: 100%; 
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid black;
+    border-radius: .5em;
+    background-color: #fff;
 }

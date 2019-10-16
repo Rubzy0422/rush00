@@ -58,7 +58,7 @@ if ($conn->query($sql) === TRUE) {
 	echo "Error creating ordered_items table: " . $conn->error . "<br/>";
 }
 
-// Create items tabel
+// Create items table
 
 $password = "admin";
 $sql = 'INSERT INTO users SET uidUsers = "admin" , emailUsers= "admin@test.com", pwdUsers="' . password_hash($password, PASSWORD_DEFAULT) . '"';

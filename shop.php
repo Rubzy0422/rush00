@@ -65,7 +65,7 @@ if(isset($_GET["action"]))
 		?>
 		
 				<select onchange="updateFilter();" id="filter">
-					<option value="">None</option>
+					<option value="">Select Category</option>
 					<?php
 					if (isset($_GET['filter']))
 					{
