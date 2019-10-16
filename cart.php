@@ -16,23 +16,30 @@ if (isset($_GET['action']))
 	}
 }
 
-if (isset($_SESSION["shopping_cart"][$_GET['remove']]) || isset($_SESSION["shopping_cart"][$_GET['add']]))
+
+if (isset($_GET['remove']))
 {
-	if (isset($_GET['remove']))
+	if (isset($_SESSION["shopping_cart"][$_GET['remove']]))
 	{
 		if ($_SESSION["shopping_cart"][$_GET['remove']]['item_quantity'] > 1)
 			$_SESSION["shopping_cart"][$_GET['remove']]['item_quantity']--;
 	}
-
-	if (isset($_GET['add']))
+	else 
 	{
-		$_SESSION["shopping_cart"][$_GET['add']]['item_quantity']++;
+		echo '<p class="error">Item not Found in cart</p>';
 	}
 }
-else 
+
+if (isset($_GET['add']))
 {
-	echo '<p class="error">Item not Found in cart</p>';
+	if (isset($_SESSION["shopping_cart"][$_GET['add']]))
+		$_SESSION["shopping_cart"][$_GET['add']]['item_quantity']++;
+	else
+	{
+		echo '<p class="error">Item not Found in cart</p>';
+	}
 }
+
 
 if (isset($_GET['error']))
 {

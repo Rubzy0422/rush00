@@ -33,7 +33,7 @@
 			$sql = "SELECT uidUsers FROM users WHERE uidUsers=?";
 			$stmt = mysqli_stmt_init($conn);
 			if (!mysqli_stmt_prepare($stmt, $sql)) {
-				header("Location: ../signup.php?error=sqlerror");
+				header("Location: ../internal_error.php");
 				exit();
 			}
 			else
@@ -53,7 +53,7 @@
 					$stmt = mysqli_stmt_init($conn);
 					if (!mysqli_stmt_prepare($stmt, $sql))
 					{
-						header("Location: ../signup.php?error=sqlerror");
+						header("Location: ../internal_error.php");
 						exit();
 					}
 					else
@@ -73,7 +73,7 @@
 							$stmt = mysqli_stmt_init($conn);
 							if (!mysqli_stmt_prepare($stmt, $sql))
 							{
-								header("Location ../signup.php?error=sqlerror");
+								header("Location ../internal_error.php");
 								exit();
 							}
 							else

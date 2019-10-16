@@ -32,7 +32,7 @@
 			$sql = "SELECT uidUsers FROM users WHERE uidUsers=?";
 			$stmt = mysqli_stmt_init($conn);
 			if (!mysqli_stmt_prepare($stmt, $sql)) {
-				header("Location: ../update.php?error=sqlerror");
+				header("Location: ../internal_error.php");
 				exit();
 			}
 			else {
@@ -48,7 +48,7 @@
 					$sql = 'UPDATE users SET uidUsers = ? , emailUsers= ?, pwdUsers= ? WHERE uidUsers ="' . $username . '"';
 					$stmt = mysqli_stmt_init($conn);
 					if (!mysqli_stmt_prepare($stmt, $sql)) {
-						header("Location ../update.php?error=sqlerror");
+						header("Location ../internal_error.php");
 						exit();
 					}
 					else {

@@ -21,7 +21,7 @@
 			$stmt = mysqli_stmt_init($conn);
 			if (!mysqli_stmt_prepare($stmt, $sql))
 			{
-				header("Location: ../../../admin.php?error=sqlerror1");
+				header("Location: ../../../internal_error.php");
 				exit();
 			}
 			mysqli_stmt_bind_param($stmt, "s", $user);
@@ -37,7 +37,7 @@
 				$stmt = mysqli_stmt_init($conn);
 				if (!mysqli_stmt_prepare($stmt, $sql))
 				{
-					header("Location: ../../../admin.php?error=sqlerror2");
+					header("Location: ../../../internal_error.php");
 					exit();
 				}
 				else {
@@ -53,7 +53,7 @@
 					$stmt = mysqli_stmt_init($conn);
 					if (!mysqli_stmt_prepare($stmt, $sql))
 					{
-						header("Location ../../../admin?error=sqlerror3");
+						header("Location ../../../internal_error.php");
 						exit();
 					}
 					else
@@ -72,6 +72,6 @@
 	}
 	else
 	{
-		header("Location: ../../../admin");
+		header("Location: ../../../admin.php");
 		exit();
 	}
