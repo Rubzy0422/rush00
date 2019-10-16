@@ -1,6 +1,8 @@
 <?php
 require "header.php";
 
+session_start();
+
 if (isset($_GET['action']))
 {
 	if($_GET["action"] == "clear_cart")
@@ -12,6 +14,24 @@ if (isset($_GET['action']))
 		}
 		echo '<script>alert("cart cleared!")</script>';
 	}
+}
+
+if (isset($_SESSION["shopping_cart"][$_GET['remove']]) || isset($_SESSION["shopping_cart"][$_GET['add']]))
+{
+	if (isset($_GET['remove']))
+	{
+		if ($_SESSION["shopping_cart"][$_GET['remove']]['item_quantity'] > 1)
+			$_SESSION["shopping_cart"][$_GET['remove']]['item_quantity']--;
+	}
+
+	if (isset($_GET['add']))
+	{
+		$_SESSION["shopping_cart"][$_GET['add']]['item_quantity']++;
+	}
+}
+else 
+{
+	echo '<p class="error">Item not Found in cart</p>';
 }
 
 if (isset($_GET['error']))
@@ -53,9 +73,14 @@ if (isset($_GET['error']))
 					?>
 					<tr>
 						<td><?php echo $values["item_name"]; ?></td>
-						<td><?php echo $values["item_quantity"]; ?></td>
+						<td>
+						<a href= "<?php echo 'cart.php?remove=' . $keys ?>"><</a>
+							<?php echo $values["item_quantity"]; ?>
+						<a href= "<?php echo 'cart.php?add=' . $keys ?>">></a>
+						</td>
 						<td>R <?php echo $values["item_price"]; ?></td>
 						<td>R <?php echo number_format($values["item_quantity"] * $values["item_price"], 2);?></td>
+						
 						<td><a href="shop.php?action=delete&id=<?php echo $values["item_id"]; ?>"><span class="text-danger">Remove</span></a></td>
 					</tr>
 					<?php

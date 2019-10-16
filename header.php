@@ -14,7 +14,7 @@
 	<body>
 		<header>
 			<div class="header">
-			<a href="indes.php"><img class="logo" src="image/Navlogo.png" alt="Logo"></a>
+			<a href="index.php"><img class="logo" src="image/Navlogo.png" alt="Logo"></a>
 			<nav class="nav_bar">
 				<a href="index.php">Home</a>
 				<a href="shop.php">Shop</a>

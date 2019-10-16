@@ -89,7 +89,7 @@ if ($conn->query($sql) === TRUE) {
 	echo "Error creating products table: " . $conn->error. "<br/>";
 }
 
-$sql = "INSERT INTO tbl_product (`id`, `name`, `image`, `price`, `catagory`) VALUES (NULL, 'item1', '/image/a.png', '10.50', 'Steve'), (NULL, 'item2', '/image/b.png', '12.00', 'Stan');";
+$sql = "INSERT INTO tbl_product (`id`, `name`, `image`, `price`, `catagory`) VALUES (NULL, 'item1', '/image/a.png', '10.50', 'Steve'), (NULL, 'item3', '/image/b.png', '12.00', 'Stan;Steve'), (NULL, 'item2', '/image/b.png', '12.00', 'Stan');";
 if ($conn->query($sql) === TRUE) {
 	echo "products added successfully<br/>";
 } else {

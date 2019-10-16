@@ -65,26 +65,30 @@ if(isset($_GET["action"]))
 		?>
 		
 				<select onchange="updateFilter();" id="filter">
-					<option value="%%">None</option>
+					<option value="">None</option>
 					<?php
 					if (isset($_GET['filter']))
 					{
 						$filter = $_GET['filter'];
 					}
-					else
-					{
-						$filter = "%%";
-					}
+					$set = array();
 							while($row = mysqli_fetch_array($result))
 							{
+								$array = explode(';', $row['catagory']);
+								foreach ($array as $entry)
+								{
+									if (!in_array($entry, $set)) {
 					?>
-								<option value=<?php echo "\"" . $row['catagory'] . "\"";
-								if ($row['catagory'] == $filter)
+								<option value=<?php echo "\"" . $entry . "\"";
+								if ($entry == $filter)
 								{
 									echo " selected";
 								}
-								?>><?php echo $row['catagory'] ?></option>
+								?>><?php echo $entry ?></option>
 					<?php
+									$set[] = $entry;
+									}
+								}
 							}
 			}
 					?>
@@ -109,7 +113,8 @@ if(isset($_GET["action"]))
 				exit();
 			}
 			else {
-				mysqli_stmt_bind_param($stmt, "s", $filter);
+				$queryfilter = '%' . $filter . '%';
+				mysqli_stmt_bind_param($stmt, "s", $queryfilter);
 				mysqli_stmt_execute($stmt);
 				$result = mysqli_stmt_get_result($stmt);
 				while($row = mysqli_fetch_array($result))
