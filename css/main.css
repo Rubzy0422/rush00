@@ -7,7 +7,7 @@ body {
 	overflow: hidden;
 	background-color: #1A1A1A;
 }
-a {
+nav a {
 	display: inline;
 	color: white;
 	padding: 1vw;
@@ -40,9 +40,19 @@ nav {
 }
 .success {
 	color: green;
+	display: block;
+	background-color: #71f771;
+	width: 100%;
+	padding: 1px 1px 1px 1px;
+	text-align: center;
 }
 .error {
+	display: block;
+	background-color: #e97a7a;
+	width: 100%;
 	color: red;
+	padding: 1px 1px 1px 1px;
+	text-align: center;
 }
 .signup {
 	margin-left: 250px;
@@ -107,4 +117,14 @@ th {
 }
 .cartempty {
 	text-align: center;
+}
+a {
+	color: white;
+	text-decoration: none;
+}
+table {
+	width: 100%;
+}
+.shop-item {
+	background-color: silver;
 }

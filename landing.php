@@ -2,15 +2,23 @@
 <div class="slideshow-container">
 
 <div class="mySlides fade">
-	<img src="image/bath1.jpeg" style="width:100%">
+	<img src="image/bath.jpg" style="width:100%">
 </div>
 
 <div class="mySlides fade">
-	<img src="image/bath2.png" style="width:100%">
+	<img src="image/bath1.jpg" style="width:100%">
 </div>
 
 <div class="mySlides fade">
-	<img src="image/bath3.png" style="width:100%">
+	<img src="image/bath2.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+	<img src="image/bath3.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+	<img src="image/bath5.jpg" style="width:100%">
 </div>
 
 </div>
@@ -19,7 +27,9 @@
 <div style="text-align:center">
 	<span class="dot" onclick="currentSlide(1)"></span> 
 	<span class="dot" onclick="currentSlide(2)"></span> 
-	<span class="dot" onclick="currentSlide(3)"></span> 
+	<span class="dot" onclick="currentSlide(3)"></span>
+	<span class="dot" onclick="currentSlide(4)"></span> 
+	<span class="dot" onclick="currentSlide(5)"></span> 
 </div>
 
 <script>

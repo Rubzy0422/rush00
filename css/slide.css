@@ -11,7 +11,7 @@ img {
 }
 
 .slideshow-container {
-	max-width: 300%;
+	max-width: 100%;
 	position: relative;
 	margin: auto;
 }

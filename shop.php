@@ -121,7 +121,7 @@ if(isset($_GET["action"]))
 				{
 				?>
 			<div class="col-md-4">
-				<form method="post" action="shop.php?action=add&id=<?php echo $row["id"]; ?>">
+				<form class="shop-item" method="post" action="shop.php?action=add&id=<?php echo $row["id"]; ?>">
 					<div align="center">
 						<img src="<?php echo $row["image"]; ?>" class="img-responsive" /><br />
 						<h4 class="text-info"><?php echo $row["name"]; ?></h4>
