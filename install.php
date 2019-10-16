@@ -68,13 +68,6 @@ if ($conn->query($sql) === TRUE) {
 	echo "Error creaing admin user: " . $conn->error . "<br/>";
 }
 
-$sql = 'INSERT INTO users SET uidUsers = "admin" , emailUsers= "admin@test.com", pwdUsers="' . password_hash($password, PASSWORD_DEFAULT) . '"';
-if ($conn->query($sql) === TRUE) {
-	echo "User Admin created successfully<br/>";
-} else {
-	echo "Error creaing admin user: " . $conn->error . "<br/>";
-}
-
 $sql = "CREATE TABLE IF NOT EXISTS `tbl_product` (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
