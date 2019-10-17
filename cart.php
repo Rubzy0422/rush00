@@ -5,7 +5,7 @@ session_start();
 
 if (isset($_GET['action']))
 {
-	if($_GET["action"] == "clear_cart")
+	if(htmlspecialchars($_GET["action"]) == "clear_cart")
 	{
 		foreach($_SESSION["shopping_cart"] as $keys => $values)
 		{
@@ -19,10 +19,10 @@ if (isset($_GET['action']))
 
 if (isset($_GET['remove']))
 {
-	if (isset($_SESSION["shopping_cart"][$_GET['remove']]))
+	if (isset($_SESSION["shopping_cart"][htmlspecialchars($_GET['remove'])]))
 	{
-		if ($_SESSION["shopping_cart"][$_GET['remove']]['item_quantity'] > 1)
-			$_SESSION["shopping_cart"][$_GET['remove']]['item_quantity']--;
+		if ($_SESSION["shopping_cart"][htmlspecialchars($_GET['remove'])]['item_quantity'] > 1)
+			$_SESSION["shopping_cart"][htmlspecialchars($_GET['remove'])]['item_quantity']--;
 	}
 	else 
 	{
@@ -32,8 +32,8 @@ if (isset($_GET['remove']))
 
 if (isset($_GET['add']))
 {
-	if (isset($_SESSION["shopping_cart"][$_GET['add']]))
-		$_SESSION["shopping_cart"][$_GET['add']]['item_quantity']++;
+	if (isset($_SESSION["shopping_cart"][htmlspecialchars($_GET['add'])]))
+		$_SESSION["shopping_cart"][htmlspecialchars($_GET['add'])]['item_quantity']++;
 	else
 	{
 		echo '<p class="error">Item not Found in cart</p>';
@@ -43,7 +43,7 @@ if (isset($_GET['add']))
 
 if (isset($_GET['error']))
 {
-	if ($_GET['error'] == "loginrequired") {
+	if (htmlspecialchars($_GET['error']) == "loginrequired") {
 		echo '<p class="error">Please login to checkout your cart!</p>';
 	}
 }
@@ -55,7 +55,7 @@ if (isset($_GET['error']))
 		<?php
 		if (isset($_GET['checkout']))
 		{
-			if ($_GET['checkout'] == "success") {
+			if (htmlspecialchars($_GET['checkout']) == "success") {
 				echo '<p class="success">Your order has been set!</p>';
 			}
 		}

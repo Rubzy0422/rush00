@@ -9,25 +9,25 @@
 				<?php
 				if (isset($_GET['error']))
 				{
-					if ($_GET['error'] == "emptyfields") {
+					if (htmlspecialchars($_GET['error']) == "emptyfields") {
 						echo '<p class="error">Please Fill in all fields!</p>';
 					}
-					else if ($_GET['error'] == "invaliduidmail") {
+					else if (htmlspecialchars($_GET['error']) == "invaliduidmail") {
 						echo '<p class="error">Invalid username or email entered!</p>';
 					}
-					else if ($_GET['error'] == "invaliduid") {
+					else if (htmlspecialchars($_GET['error']) == "invaliduid") {
 						echo '<p class="error">Invalid username!</p>';
 					}
-					else if ($_GET['error'] == "invalidmail") {
+					else if (htmlspecialchars($_GET['error']) == "invalidmail") {
 						echo '<p class="error">Invalid email!</p>';
 					}
-					else if ($_GET['error'] == "emailtaken") {
+					else if (htmlspecialchars($_GET['error']) == "emailtaken") {
 						echo '<p class="error">This E-mail is allready in use!</p>';
 					}
-					else if ($_GET['error'] == "passwordcheck") {
+					else if (htmlspecialchars($_GET['error']) == "passwordcheck") {
 						echo '<p class="error">Passwords do not match!</p>';
 					}
-					else if ($_GET['error'] == "usertaken") {
+					else if (htmlspecialchars($_GET['error']) == "usertaken") {
 						echo '<p class="error">Username is already taken!</p>';
 					}
 				}
@@ -36,14 +36,14 @@
 					<input type="text" name="uid" placeholder="Username"  <?php 
 					if (isset($_GET['uid']))
 					{
-						echo 'value="' . $_GET['uid'].'"';
+						echo 'value="' . htmlspecialchars($_GET['uid']) .'"';
 					}
 					?>>
 
 					<input type="email" name="mail" placeholder="E-mail"  <?php 
 					if (isset($_GET['mail']))
 					{
-						echo 'value="' . $_GET['mail'].'"';
+						echo 'value="' . htmlspecialchars($_GET['mail']) .'"';
 					}
 					?>>
 					<input type= "password" name="pwd" placeholder="Password">

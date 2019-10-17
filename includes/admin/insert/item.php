@@ -5,10 +5,10 @@
 if (isset($_POST['admin-item-insert']))
 {
 
-	$name = $_POST['name'];
-	$price = $_POST['price'];
-	$cat = $_POST['catagory'];
-	$img =  $_FILES['file'];
+	$name = htmlspecialchars($_POST['name']);
+	$price = htmlspecialchars($_POST['price']);
+	$cat = htmlspecialchars($_POST['catagory']);
+	$img = $_FILES['file'];
 
 	if (empty($img) || empty($cat) || empty($price) || empty($name))
 	{

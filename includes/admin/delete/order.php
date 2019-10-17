@@ -5,7 +5,7 @@
 	{
 		require '../../dbh.inc.php';
 		session_start();
-		$orderid = $_POST['orderid'];
+		$orderid = htmlspecialchars($_POST['orderid']);
 		$sql = "DELETE FROM ordered_items WHERE id=?";
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql))
@@ -26,7 +26,7 @@
 	{
 		require '../../dbh.inc.php';
 		session_start();
-		$username = $_POST['orderer'];
+		$username = htmlspecialchars($_POST['orderer']);
 		$sql = "DELETE FROM ordered_items WHERE orderer=?";
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql))

@@ -27,22 +27,22 @@
 									<?php
 									if (isset($_GET['error']))
 									{
-										if ($_GET['error'] == "emptyfields") {
+										if (htmlspecialchars($_GET['error']) == "emptyfields") {
 											echo '<p class="error">Please Fill in all fields!</p>';
 										}
-										else if ($_GET['error'] == "invaliduidmail") {
+										else if (htmlspecialchars($_GET['error']) == "invaliduidmail") {
 											echo '<p class="error">Invalid username or email entered!</p>';
 										}
-										else if ($_GET['error'] == "invaliduid") {
+										else if (htmlspecialchars($_GET['error']) == "invaliduid") {
 											echo '<p class="error">Invalid username!</p>';
 										}
-										else if ($_GET['error'] == "invalidmail") {
+										else if (htmlspecialchars($_GET['error']) == "invalidmail") {
 											echo '<p class="error">Invalid email!</p>';
 										}
-										else if ($_GET['error'] == "passwordcheck") {
+										else if (htmlspecialchars($_GET['error']) == "passwordcheck") {
 											echo '<p class="error">Passwords do not match!</p>';
 										}
-										else if ($_GET['error'] == "usertaken") {
+										else if (htmlspecialchars($_GET['error']) == "usertaken") {
 											echo '<p class="error">Username is already taken!</p>';
 										}
 
@@ -57,7 +57,7 @@
 											<?php 
 												if (isset($_GET['mail']))
 												{
-													echo 'value="' . $_GET['mail'].'"';
+													echo 'value="' . htmlspecialchars($_GET['mail']) .'"';
 												}
 												else
 												{

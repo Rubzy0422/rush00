@@ -5,16 +5,12 @@
 if (isset($_POST['admin-item-update']))
 {
 
-	$name = $_POST['name'];
-	$price = $_POST['price'];
-	$cat = $_POST['catagory'];
+	$name = htmlspecialchars($_POST['name']);
+	$price = htmlspecialchars($_POST['price']);
+	$cat = htmlspecialchars($_POST['catagory']);
 	$img = $_FILES['file-update'];
 
-	if (empty($img))
-	{
-		header("Location: ../../../admin.php?error=image is not set!");
-		exit();
-	}
+
 	if (empty($img) || empty($cat) || empty($price) || empty($name))
 	{
 		header("Location: ../../../admin.php?error=Please ensure all fields are filled!");
@@ -59,16 +55,16 @@ if (isset($_POST['admin-item-update']))
 		{
 			if (move_uploaded_file($_FILES['file-update']['tmp_name'], $file))
 			{
-				$sql = 'UPDATE `tbl_product` SET `image`= ?, `price`= ?, `catagory`=? WHERE `name` = ?"';
+				$sql = 'UPDATE tbl_product SET `image`= ?, `price` = ?, `catagory`=? WHERE `name` ="' . $name . '"';;
 				$stmt = mysqli_stmt_init($conn);
 				if (!mysqli_stmt_prepare($stmt, $sql))
 				{
-					header("Location ../../../internal_error.php");
+					header("Location: ../../../internal_error.php");
 					exit();
 				}
 				else 
 				{
-					mysqli_stmt_bind_param($stmt, "sdss", $file, $price, $cat, $name);
+					mysqli_stmt_bind_param($stmt, "sds", $file, $price, $cat);
 					mysqli_stmt_execute($stmt);
 					header("Location: ../../../admin.php?success=Item edited Successfully!");
 					exit();

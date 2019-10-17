@@ -3,10 +3,10 @@ if (isset($_POST['admin-order-update']))
 {
 	require '../../dbh.inc.php';
 	
-	$orderer = $_POST['orderer'];
-	$orderid = $_POST['orderid'];
-	$quantity = $_POST['quantity'];
-	$productid = $_POST['productid'];
+	$orderer = htmlspecialchars($_POST['orderer']);
+	$orderid = htmlspecialchars($_POST['orderid']);
+	$quantity = htmlspecialchars($_POST['quantity']);
+	$productid = htmlspecialchars($_POST['productid']);
 	if (empty($orderer) || empty($quantity) || empty($productid) || empty($orderid)) {
 		header("Location: ../../../admin.php?error=emptyfields");
 		exit();

@@ -4,7 +4,7 @@
 	{
 		require '../../dbh.inc.php';
 		session_start();
-		$name = $_POST['name'];
+		$name = htmlspecialchars($_POST['name']);
 		$sql = "DELETE FROM tbl_product WHERE `name`=?";
 		$stmt = mysqli_stmt_init($conn);
 		if (!mysqli_stmt_prepare($stmt, $sql))

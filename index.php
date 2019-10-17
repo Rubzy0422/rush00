@@ -10,7 +10,7 @@ require "header.php";
 				{
 					if (isset($_GET['signup']))
 					{
-						if ($_GET['signup'] == "success") {
+						if (htmlspecialchars($_GET['signup']) == "success") {
 							echo '<p class="success">Signup successfull!</p>';
 						}
 					}
@@ -24,7 +24,7 @@ require "header.php";
 						}
 					}
 				} else
-					echo '<p>' . $_GET["error"] . '</p>';
+					echo '<p>' . htmlspecialchars($_GET["error"]) . '</p>';
 				require 'landing.php';
 				?>
 			</section>

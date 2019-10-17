@@ -2,9 +2,9 @@
 
 	if (isset($_POST['admin-order-insert']))
 	{
-		$user = $_POST['orderer'];
-		$itemid = $_POST['productid'];
-		$quantity = $_POST['quantity'];
+		$user = htmlspecialchars($_POST['orderer']);
+		$itemid = htmlspecialchars($_POST['productid']);
+		$quantity = htmlspecialchars($_POST['quantity']);
 
 		echo $user;
 		echo $itemid;
